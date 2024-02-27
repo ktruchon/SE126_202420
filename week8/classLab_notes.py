@@ -106,7 +106,6 @@ def get_row():
         except:
             # if an error is raised because the user didn;t provide a value that can be cast as an integer, it displays the below message
             print("\t\t\tROW MUST BE AN *INTEGER*")
-
     return row_r
 
 
@@ -128,6 +127,10 @@ def get_seat():
 
     #return seat_r value after validation; returns to wherever the call { seat_choice() } exists in base program
     return seat_r
+
+
+
+
 
 #You must use a function that asks the user in they want to continue or stop. The function should only accept an uppercase or lowercase y or n.
 def more_seats():

@@ -103,12 +103,13 @@ def row_choice():
     if row_r != -1:
         #above statement checks ot see if the user was able to enter an integer; when row_r is still -1, it means it has not been revalued ie the user has not provided a valid input and they hit the 'except' above
         # 
+
+        print(f"you entered: {row_r:.1f}")
+        return row_r
+    else:
         # RECURSION: function calling itself below
         # when the user hasn't provided an appropriate value, we recall the function (like a loop!) 
-        print(f"you entered: {row_r:.1f}")
         return row_choice()
-    else:
-        row_choice()
 
 
 
