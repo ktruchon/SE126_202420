@@ -101,7 +101,12 @@ def row_choice():
             # if an error is raised because the user didn;t provide a value that can be cast as an integer, it displays the below message
             print("\t\t\tROW MUST BE AN *INTEGER*")
 
-    return row_choice()
+    if row_r != -1:
+        return row_r
+    
+    else:
+        #RECURSION - a function calling itself 8D SCARY BUT FUN!
+        return row_choice()
 
 
 

@@ -88,7 +88,7 @@ def clear():
 def get_row():
     '''this function gets the row choice (1-7) user would like to sit in, checks that it is within the appropriate range, and returns it to the base program'''
 
-    row_r = -1 #sets row to something < 1 that is out of our acceptable range
+    
 
     #usually we would just use a loop to check for valid row choice
     #while row_r < 1 or row_r > 7: 
@@ -98,15 +98,25 @@ def get_row():
     #When an error occurs, or exception as we call it, Python will normally stop and generate an error message.These exceptions can be handled using the try statement:
     #more here: https://www.w3schools.com/python/python_try_except.asp 
     
-    while row_r < 1 or row_r > 7:
-        #working with try/except code blocks
-        try:
-            row_r = int(input("\t\t\tEnter the ROW you wish to sit in [1-7]: "))
-        
-        except:
-            # if an error is raised because the user didn;t provide a value that can be cast as an integer, it displays the below message
-            print("\t\t\tROW MUST BE AN *INTEGER*")
-    return row_r
+    row_r = -1 #sets row to something < 1 that is out of our acceptable range
+    acceptable = [1, 2, 3, 4, 5, 6, 7]
+    try:
+        row_r = int(input("\t\t\tEnter the ROW you wish to sit in [1-7]: "))
+    
+    except:
+        # if an error is raised because the user didn;t provide a value that can be cast as an integer, it displays the below message
+        print("\t\t\tROW MUST BE AN *INTEGER*")
+
+    if row_r != -1: #initial value has changed, so user got through the try block  
+        if row_r in acceptable:
+            return row_r
+        else: #value isnt in valid range, so user needs to be re-prompted
+            return get_row()
+    else: #initial value never changed, user hit exception block and must try again
+        return get_row()
+
+
+
 
 
 def get_seat():
